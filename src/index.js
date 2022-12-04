@@ -12,6 +12,7 @@ app.get('/range', async (req, res) => {
         const first = Number(numbers_array[0]);
         const last = Number(numbers_array[1]);
         const range = Range(first, last);
+        await fsp.writeFile('log.json', range);
         res.status(200);
         res.json(range);
     }
@@ -28,6 +29,7 @@ app.post('/range', async (req, res) => {
         const first = numbers[0];
         const last = numbers[1];
         const range = Range(first, last);
+        await fsp.writeFile('log.json', range);
         res.status(200);
         res.json(range);
     }
