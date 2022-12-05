@@ -1,5 +1,6 @@
 import express from 'express';
 import Range from './range.js';
+import fsp from 'fs/promises';
 
 const app = express();
 app.use(express.json());
@@ -12,7 +13,7 @@ app.get('/range', async (req, res) => {
         const first = Number(numbers_array[0]);
         const last = Number(numbers_array[1]);
         const range = Range(first, last);
-        await fsp.writeFile('log.json', range);
+        await fsp.writeFile('log.json','utf-8',range);
         res.status(200);
         res.json(range);
     }
