@@ -8,7 +8,7 @@ app.use(express.json());
 app.get('/range', async (req, res) => {
     const { numbers } = req.query;
     const numbers_array = numbers.split(',');
-    if(numbers.length == 2) {
+    if(numbers_array.length == 2) {
         const first = Number(numbers_array[0]);
         const last = Number(numbers_array[1]);
         const range = Range(first, last);
